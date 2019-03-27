@@ -15,7 +15,7 @@
 
 # Basic usage
 
-```jsx
+```js
 import React from 'react'
 import Fetch from 'fetch-react'
 
@@ -43,9 +43,32 @@ const GitHubUser = ({ name }) =>
 You can pass options to the `fetch` call using the `opts` prop.
 Valid options are described [here](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch).
 
-## Low-level `withFetch` API
+## Base URL and default options
 
-```jsx
+You can wrap the component to set default options or a base URL.
+
+```js
+const fetchOpts = { credentials: 'same-origin' }
+
+const MyFetch = props => <Fetch
+  request={new URL('https://api.example.com/v1/', props.endpoint).href}
+  opts={fetchOpts}
+  { ...props }
+/>
+
+<MyFetch
+  url="/user/11"
+  onResponse={user => <User user={user}/>}
+/>
+```
+
+## Handling errors in the response
+
+You can `throw` from `onResponse` which will render `onError` with the thrown error as first argument.
+
+## Low-level usage of `withFetch`
+
+```js
 import React from 'react'
 import {withFetch} from 'fetch-react'
 
