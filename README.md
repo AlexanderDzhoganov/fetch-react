@@ -40,7 +40,7 @@ const GitHubUser = ({ name }) =>
         <p>{login}</p>
         <img src={avatar_url}/>
       </div>
-    }
+    }}
     onError={error => 'an error occured'}
   />
 
