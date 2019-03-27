@@ -1,12 +1,13 @@
 var path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, './dist'),
-    filename: 'fetch-react.js',
-    library: 'ReactFetch',
+    filename: 'fetch-react.min.js',
+    library: 'FetchReact',
     libraryTarget: 'umd',
     publicPath: '/dist/',
     umdNamedDefine: true
@@ -26,6 +27,11 @@ module.exports = {
       }
     ]
   },
+  optimization: {
+    minimizer: [new TerserPlugin({
+      test: /\.js(\?.*)?$/i,
+    })],
+  },
   externals: {
     react: {
       commonjs: "react",
@@ -34,10 +40,10 @@ module.exports = {
       root: "React"
     },
     "react-dom": {
-        commonjs: "react-dom",
-        commonjs2: "react-dom",
-        amd: "ReactDOM",
-        root: "ReactDOM"
+      commonjs: "react-dom",
+      commonjs2: "react-dom",
+      amd: "ReactDOM",
+      root: "ReactDOM"
     }
   }
 };

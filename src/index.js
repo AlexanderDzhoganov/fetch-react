@@ -46,24 +46,33 @@ class FetchHelper extends PureComponent {
       onError
     } = this.props
 
+    let content = null
+
     if (fetchError) {
-      return onError(fetchError)
+      content = onError(fetchError)
     } else if (fetchResponse) {
       try {
-        return onData(fetchResponse)
+        content = onData(fetchResponse)
       } catch (error) {
-        return onError(error)
+        content = onError(error)
       }
+    } else {
+      content = onLoading()
     }
 
-    return onLoading()
+    return typeof content === 'object' ? content : <div>{content}</div>
   }
 }
 
 export default class Fetch extends PureComponent {
+  constructor(props) {
+    super(props)
+
+    const { request, opts } = props
+    this.fetch = withFetch(request, opts)(FetchHelper)
+  }
+
   render() {
-    const { request, opts } = this.props
-    const HelperInstance = withFetch(request, opts)(FetchHelper)
-    return <HelperInstance { ...this.props }/>
+    return <this.fetch { ...this.props }/>
   }
 }
