@@ -1,6 +1,10 @@
 import React from 'react'
+import Enzyme, { mount } from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16'
 
-describe("00-ReactBasic", () => {
+Enzyme.configure({ adapter: new Adapter() })
+
+describe("01-ReactBasic", () => {
   it("renders a simple component", () => {
     const Test = ({ name }) => <div>{name}</div>
 
