@@ -1,6 +1,6 @@
 # fetch-react &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/AlexanderDzhoganov/fetch-react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/fetch-react.svg?style=flat)](https://www.npmjs.com/package/fetch-react) [![CircleCI Status](https://circleci.com/gh/AlexanderDzhoganov/fetch-react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/AlexanderDzhoganov/fetch-react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexanderdzhoganov/fetch-react/pulls)
 
-`fetch-react` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
+`fetch-react` is a very small (<4kb) React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
 
 ```html
 <Fetch
@@ -21,7 +21,6 @@
 - `onData` - response renderer - a function with one argument, the response instance
 - `onLoading` - (optional) loading renderer - a function with no arguments
 - `onError` - (optional) error renderer - a function with one argument, the request error
-- `responseFormat` - (optional) one of `json`, `text`, `formData`, `blob` or `arrayBuffer` (defaults to `json`)
 - `readFn` - (optional) function to read the [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) body (defaults to `resp => resp.json()`)
 - `fetchFn` - (optional) `fetch()` implementation to use (defaults to `window.fetch`)
 
