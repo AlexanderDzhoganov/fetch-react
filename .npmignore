@@ -1,6 +1,7 @@
 src
-test
+spec
 examples
 .babelrc
 .gitignore
 webpack.config.js
+jest.config.js
