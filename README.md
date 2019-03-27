@@ -1,5 +1,7 @@
 # fetch-react
 
+# [React](https://reactjs.org/) &middot; [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/facebook/react/blob/master/LICENSE) [![npm version](https://img.shields.io/npm/v/fetch-react.svg?style=flat)](https://www.npmjs.com/package/fetch-react) [![CircleCI Status](https://circleci.com/gh/AlexanderDzhoganov/fetch-react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/AlexanderDzhoganov/fetch-react) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/alexanderdzhoganov/fetch-react/pulls)
+
 `fetch-react` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
 
 ```js
