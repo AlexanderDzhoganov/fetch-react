@@ -5,7 +5,7 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, './dist'),
-    filename: 'react-fetch.js',
+    filename: 'fetch-react.js',
     library: 'ReactFetch',
     libraryTarget: 'umd',
     publicPath: '/dist/',

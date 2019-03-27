@@ -1,6 +1,6 @@
-# react-fetch
+# fetch-react
 
-`react-fetch` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
+`fetch-react` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
 
 ```html
 <Fetch
@@ -17,7 +17,7 @@
 
 ```jsx
 import React from 'react'
-import Fetch from 'react-fetch'
+import Fetch from 'fetch-react'
 
 const GitHubUser = ({ name }) =>
   <Fetch
@@ -33,8 +33,6 @@ const GitHubUser = ({ name }) =>
     onError={error => 'an error occured'}
   />
 
-//
-
 <GitHubUser name="alexanderdzhoganov"/>
 ```
 
@@ -49,7 +47,7 @@ Valid options are described [here](https://developer.mozilla.org/en-US/docs/Web/
 
 ```jsx
 import React from 'react'
-import {withFetch} from 'react-fetch'
+import {withFetch} from 'fetch-react'
 
 const url = 'https://api.github.com/search/users?q=alexanderdzhoganov'
 
