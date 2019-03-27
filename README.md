@@ -19,6 +19,10 @@
 npm i fetch-react
 ```
 
+For [older browsers](https://caniuse.com/#feat=fetch) without native fetch support you need [a polyfill](https://github.com/github/fetch).
+
+For Node.js usage you need [node-fetch](https://www.npmjs.com/package/node-fetch).
+
 # Basic usage
 
 ```js
@@ -45,7 +49,7 @@ const GitHubUser = ({ name }) =>
 # Setting options
 
 You can pass options to the `fetch` call using the `opts` prop.
-Valid options are described [here](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch).
+Valid options are described [here](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
 # Base URL and default options
 
