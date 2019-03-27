@@ -32,7 +32,7 @@ describe("basic-get", () => {
     const mounted = mount(
       <Fetch
         request={url}
-        onResponse={resp => <div>{resp.foo}</div>}
+        onData={resp => <div>{resp.foo}</div>}
       />
     )
     expect(mounted.props().request === url)

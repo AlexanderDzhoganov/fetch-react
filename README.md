@@ -6,7 +6,7 @@
 <Fetch
   request={request}
   opts={opts}
-  onResponse={onResponse}
+  onData={onData}
   onLoading={onLoading}
   onError={onError}
   responseFormat={responseFormat}
@@ -18,7 +18,7 @@
 
 - `request` - the request url, the first argument passed to `fetch()` - a string, [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object
 - `opts` - request options, the second argument passed to `fetch()`
-- `onResponse` - response renderer - a function with one argument, the response instance
+- `onData` - response renderer - a function with one argument, the response instance
 - `onLoading` - (optional) loading renderer - a function with no arguments
 - `onError` - (optional) error renderer - a function with one argument, the request error
 - `responseFormat` - (optional) one of `json`, `text`, `formData`, `blob` or `arrayBuffer` (defaults to `json`)
@@ -43,7 +43,7 @@ import Fetch from 'fetch-react'
 const GitHubUser = ({ name }) =>
   <Fetch
     request={'https://api.github.com/search/users?q=' + name}
-    onResponse={response => <img src={response.items[0].avatar_url}/>}
+    onData={response => <img src={response.items[0].avatar_url}/>}
     onLoading={() => 'Loading...'}
     onError={error => 'An error occured!'}
   />
@@ -75,13 +75,13 @@ const ApiFetch = props => <Fetch
 
 <ApiFetch
   url="/user/11"
-  onResponse={user => <User user={user}/>}
+  onData={user => <User user={user}/>}
 />
 ```
 
 # Handling errors in the response
 
-You can `throw` from `onResponse` which will render `onError` with the thrown error as first argument.
+You can `throw` from `onData` which will render `onError` with the thrown error as first argument.
 
 # Alternative `withFetch` API
 

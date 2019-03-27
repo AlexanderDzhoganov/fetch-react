@@ -4,7 +4,8 @@ export const withFetch = (request, opts) => (Component) =>
   class withFetch extends Component {
     static defaultProps = {
       responseFormat: 'json',
-      fetchFn: window.fetch || global.fetch
+      fetchFn: window.fetch || global.fetch,
+      readFn: response => response.json()
     }
 
     constructor(props) {
@@ -32,8 +33,8 @@ export const withFetch = (request, opts) => (Component) =>
 
 class FetchHelper extends PureComponent {
   static defaultProps = {
+    onData: () => null,
     onLoading: () => null,
-    onResponse: () => null,
     onError: () => null
   }
 
@@ -42,7 +43,7 @@ class FetchHelper extends PureComponent {
       fetchResponse,
       fetchError,
       onLoading,
-      onResponse,
+      onData,
       onError
     } = this.props
 
@@ -54,7 +55,7 @@ class FetchHelper extends PureComponent {
       children = onError(fetchError)
     } else if (fetchResponse) {
       try {
-        children = onResponse(fetchResponse)
+        children = onData(fetchResponse)
       } catch (error) {
         children = onError(error)
       }
