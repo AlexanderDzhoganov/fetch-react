@@ -2,14 +2,14 @@
 
 `fetch-react` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
 
-```html
+```js
 <Fetch
-  request={request}
-  opts={opts}
-  responseFormat={responseFormat}
-  onLoading={onLoading}
-  onResponse={onResponse}
-  onError={onError}
+  request={request} // first argument passed to fetch() - a string, URL or Request object
+  opts={opts}       // second argument passed to fetch()
+  onLoading={onLoading}   // loading handler - a function with no arguments
+  onResponse={onResponse} // response handler - a function with one argument, the response instance
+  onError={onError}       // error handler - a function with one argument, the request error
+  responseFormat={responseFormat} // one of 'json', 'text', 'formData', 'blob' or 'arrayBuffer' (defaults to 'json')
 />
 ```
 
