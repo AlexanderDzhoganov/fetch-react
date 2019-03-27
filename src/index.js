@@ -1,6 +1,6 @@
 import React, { PureComponent, Component } from 'react'
 
-export const withFetch = (request, opts) => BaseComponent =>
+export const withFetch = (url, opts) => BaseComponent =>
   class withFetch extends Component {
     static defaultProps = {
       fetchFn: /* istanbul ignore next */ fetch || window.fetch || global.fetch,
@@ -19,7 +19,7 @@ export const withFetch = (request, opts) => BaseComponent =>
     componentDidMount() {
       const { fetchFn, readFn } = this.props
 
-      fetchFn(request, opts)
+      fetchFn(url, opts)
       .then(readFn)
       .then(fetchResponse => this.setState({ fetchResponse }))
       .catch(fetchError => this.setState({ fetchError }))
@@ -64,7 +64,7 @@ class FetchHelper extends PureComponent {
 }
 
 export default props => {
-  const { request, opts } = props
-  const F = withFetch(request, opts)(FetchHelper)
+  const { url, opts } = props
+  const F = withFetch(url, opts)(FetchHelper)
   return <F { ...props }/>
 }

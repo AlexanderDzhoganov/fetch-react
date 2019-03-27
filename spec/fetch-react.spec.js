@@ -64,7 +64,7 @@ describe("fetch-react", () => {
     const opts = {bar: 'hello world'}
 
     const c = mount(<Fetch
-      request={req}
+      url={req}
       opts={opts}
       fetchFn={(_req, _opts) => {
         expect(_req).toBe(req)
@@ -77,11 +77,11 @@ describe("fetch-react", () => {
   it("json get request", () => {
     const url = `http://localhost:${PORT}/json`
     const c = mount(<Fetch
-      request={url}
+      url={url}
       onData={resp => <div>{resp.foo}</div>}
     />)
 
-    expect(c.props().request).toBe(url)
+    expect(c.props().url).toBe(url)
     c.update()
 
     return awaitResult()
@@ -93,11 +93,11 @@ describe("fetch-react", () => {
   it("json get request (onData returns string)", () => {
     const url = `http://localhost:${PORT}/json`
     const c = mount(<Fetch
-      request={url}
+      url={url}
       onData={resp => resp.foo}
     />)
 
-    expect(c.props().request).toBe(url)
+    expect(c.props().url).toBe(url)
     c.update()
 
     return awaitResult()
@@ -111,12 +111,12 @@ describe("fetch-react", () => {
     const headers = { 'x-foo': 'a custom header' }
 
     const c = mount(<Fetch
-      request={url}
+      url={url}
       opts={{ headers }}
       onData={resp => resp['x-foo']}
     />)
 
-    expect(c.props().request).toBe(url)
+    expect(c.props().url).toBe(url)
     c.update()
 
     return awaitResult()
@@ -129,7 +129,7 @@ describe("fetch-react", () => {
     const url = `http://localhost:${PORT}/text`
 
     const c = mount(<Fetch
-      request={url}
+      url={url}
       onData={resp => resp}
       readFn={resp => resp.text()}
     />)
@@ -146,7 +146,7 @@ describe("fetch-react", () => {
     const url = `http://this-is-a-non-existent-address.com`
 
     const c = mount(<Fetch
-      request={url}
+      url={url}
       onError={err => 'this is an error'}
       readFn={resp => resp.text()}
     />)
@@ -163,7 +163,7 @@ describe("fetch-react", () => {
     const url = `http://localhost:${PORT}/text`
 
     const c = mount(<Fetch
-      request={url}
+      url={url}
       onError={err => err.type}
     />)
 
@@ -179,7 +179,7 @@ describe("fetch-react", () => {
     const url = `http://localhost:${PORT}/text`
 
     const c = mount(<Fetch
-      request={url}
+      url={url}
       onData={resp => { throw 'custom error'} }
       onError={err => err}
       readFn={resp => resp.text()}
@@ -197,7 +197,7 @@ describe("fetch-react", () => {
     const url = `http://localhost:${PORT}/slow`
 
     const c = mount(<Fetch
-      request={url}
+      url={url}
       onData={resp => resp}
       onLoading={() => 'i am loading'}
       readFn={resp => resp.text()}

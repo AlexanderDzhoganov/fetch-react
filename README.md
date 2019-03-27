@@ -4,7 +4,7 @@
 
 ```html
 <Fetch
-  request={request}
+  url={url}
   opts={opts}
   onData={onData}
   onLoading={onLoading}
@@ -16,7 +16,7 @@
 
 # Props
 
-- `request` - the request url - a string, [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object
+- `url` - the request url - a string, [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object
 - `onData` - a function that renders the response data
 - `onLoading` - (optional) a function that renders the loading state
 - `onError` - (optional) a function that renders the error state
@@ -42,8 +42,8 @@ import Fetch from 'fetch-react'
 
 const GitHubUser = ({ name }) =>
   <Fetch
-    request={'https://api.github.com/search/users?q=' + name}
-    onData={response => <img src={response.items[0].avatar_url}/>}
+    url={'https://api.github.com/search/users?q=' + name}
+    onData={data => <img src={data.items[0].avatar_url}/>}
     onLoading={() => 'Loading...'}
     onError={error => 'An error occured!'}
   />
@@ -66,7 +66,7 @@ Wrap the component to set default options or a base URL.
 const fetchOpts = { credentials: 'same-origin' }
 
 const ApiFetch = props => <Fetch
-  request={new URL('https://api.example.com/v1/', props.url)}
+  url={new URL('https://api.example.com/v1/', props.url)}
   opts={fetchOpts}
   { ...props }
 />
