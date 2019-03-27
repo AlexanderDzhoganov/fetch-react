@@ -63,15 +63,8 @@ class FetchHelper extends PureComponent {
   }
 }
 
-export default class Fetch extends PureComponent {
-  constructor(props) {
-    super(props)
-
-    const { request, opts } = props
-    this.fetch = withFetch(request, opts)(FetchHelper)
-  }
-
-  render() {
-    return <this.fetch { ...this.props }/>
-  }
+export default props => {
+  const { request, opts } = props
+  const F = withFetch(request, opts)(FetchHelper)
+  return <F { ...props }/>
 }
