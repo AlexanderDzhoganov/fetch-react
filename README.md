@@ -6,8 +6,8 @@
 <Fetch
   request={request}
   opts={opts}
-  onLoading={onLoading}
   onResponse={onResponse}
+  onLoading={onLoading}
   onError={onError}
   responseFormat={responseFormat}
   fetchFn={fetchFn}
@@ -42,7 +42,7 @@ import Fetch from 'fetch-react'
 
 const GitHubUser = ({ name }) =>
   <Fetch
-    request='https://api.github.com/search/users?q=' + name
+    request={'https://api.github.com/search/users?q=' + name}
     onResponse={response => <img src={response.items[0].avatar_url}/>}
     onLoading={() => 'Loading...'}
     onError={error => 'An error occured!'}
