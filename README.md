@@ -60,20 +60,20 @@ Valid options are described [here](https://developer.mozilla.org/en-US/docs/Web/
 
 # Default options and base URL
 
-You can wrap the component to set default options or a base URL.
+Wrap the component to set default options or a base URL.
 
 ```js
 const fetchOpts = { credentials: 'same-origin' }
 
-const MyFetch = props => <Fetch
-  request={new URL('https://api.example.com/v1/', props.url).href}
+const ApiFetch = props => <Fetch
+  request={new URL('https://api.example.com/v1/', props.url)}
   opts={fetchOpts}
   { ...props }
 />
 
 // then use like
 
-<MyFetch
+<ApiFetch
   url="/user/11"
   onResponse={user => <User user={user}/>}
 />
@@ -83,13 +83,11 @@ const MyFetch = props => <Fetch
 
 You can `throw` from `onResponse` which will render `onError` with the thrown error as first argument.
 
-# `withFetch`
+# Alternative `withFetch` API
 
 ```js
 import React from 'react'
-import {withFetch} from 'fetch-react'
-
-const url = 'https://api.github.com/search/users?q=alexanderdzhoganov'
+import { withFetch } from 'fetch-react'
 
 class MyComponent extends React.Component {
   render() {
@@ -107,5 +105,6 @@ class MyComponent extends React.Component {
   }
 }
 
+const url = 'https://api.github.com/search/users?q=alexanderdzhoganov'
 const WrappedComponent = withFetch(url)(MyComponent)
 ```
