@@ -22,6 +22,7 @@
 - `onLoading` - (optional) loading renderer - a function with no arguments
 - `onError` - (optional) error renderer - a function with one argument, the request error
 - `responseFormat` - (optional) one of `json`, `text`, `formData`, `blob` or `arrayBuffer` (defaults to `json`)
+- `readFn` - (optional) function to read the [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) body (defaults to `resp => resp.json()`)
 - `fetchFn` - (optional) `fetch()` implementation to use (defaults to `window.fetch`)
 
 # Installation
@@ -106,5 +107,7 @@ class MyComponent extends React.Component {
 }
 
 const url = 'https://api.github.com/search/users?q=alexanderdzhoganov'
-const WrappedComponent = withFetch(url)(MyComponent)
+const fetchOpts = { credentials: 'same-origin' }
+
+const WrappedComponent = withFetch(url, fetchOpts)(MyComponent)
 ```
