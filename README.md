@@ -9,7 +9,8 @@
   onLoading={onLoading}   // loading handler - a function with no arguments
   onResponse={onResponse} // response handler - a function with one argument, the response instance
   onError={onError}       // error handler - a function with one argument, the request error
-  responseFormat={responseFormat} // one of 'json', 'text', 'formData', 'blob' or 'arrayBuffer' (defaults to 'json')
+  responseFormat={responseFormat} // (optional) one of 'json', 'text', 'formData', 'blob' or 'arrayBuffer' (defaults to 'json')
+  fetchFn={fetchFn} // (optional) fetch() implementation to use (defaults to 'window.fetch')
 />
 ```
 

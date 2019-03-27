@@ -3,7 +3,8 @@ import React, { Component, PureComponent } from 'react'
 export const withFetch = (request, opts) => (Component) =>
   class withFetch extends Component {
     static defaultProps = {
-      responseFormat: 'json'
+      responseFormat: 'json',
+      fetchFn: window.fetch || global.fetch
     }
 
     constructor(props) {
@@ -16,9 +17,9 @@ export const withFetch = (request, opts) => (Component) =>
     }
 
     componentDidMount() {
-      const { responseFormat } = this.props
+      const { fetchFn, responseFormat } = this.props
 
-      fetch(request, opts)
+      fetchFn(request, opts)
       .then(response => response[responseFormat]())
       .then(fetchResponse => this.setState({ fetchResponse }))
       .catch(fetchError => this.setState({ fetchError }))
