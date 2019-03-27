@@ -1,6 +1,6 @@
 {
   "name": "fetch-react",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Fetch API component for React",
   "main": "index.js",
   "scripts": {

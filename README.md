@@ -16,13 +16,13 @@
 
 # Props
 
-- `request` - the first argument passed to fetch() - a string, URL or Request object
-- `opts` - the second argument passed to fetch()
+- `request` - the request url, the first argument passed to `fetch()` - a string, [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object
+- `opts` - request options, the second argument passed to `fetch()`
 - `onResponse` - response renderer - a function with one argument, the response instance
 - `onLoading` - (optional) loading renderer - a function with no arguments
 - `onError` - (optional) error renderer - a function with one argument, the request error
-- `responseFormat` - (optional) one of 'json', 'text', 'formData', 'blob' or 'arrayBuffer' (defaults to 'json')
-- `fetchFn` - (optional) fetch() implementation to use (defaults to 'window.fetch')
+- `responseFormat` - (optional) one of `json`, `text`, `formData`, `blob` or `arrayBuffer` (defaults to `json`)
+- `fetchFn` - (optional) `fetch()` implementation to use (defaults to `window.fetch`)
 
 # Installation
 
