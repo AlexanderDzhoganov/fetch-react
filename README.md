@@ -2,17 +2,27 @@
 
 `fetch-react` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
 
-```js
+```html
 <Fetch
-  request={request} // first argument passed to fetch() - a string, URL or Request object
-  opts={opts}       // second argument passed to fetch()
-  onLoading={onLoading}   // loading handler - a function with no arguments
-  onResponse={onResponse} // response handler - a function with one argument, the response instance
-  onError={onError}       // error handler - a function with one argument, the request error
-  responseFormat={responseFormat} // (optional) one of 'json', 'text', 'formData', 'blob' or 'arrayBuffer' (defaults to 'json')
-  fetchFn={fetchFn} // (optional) fetch() implementation to use (defaults to 'window.fetch')
+  request={request}
+  opts={opts}
+  onLoading={onLoading}
+  onResponse={onResponse}
+  onError={onError}
+  responseFormat={responseFormat}
+  fetchFn={fetchFn}
 />
 ```
+
+# Props
+
+- `request` - the first argument passed to fetch() - a string, URL or Request object
+- `opts` - the second argument passed to fetch()
+- `onResponse` - response renderer - a function with one argument, the response instance
+- `onLoading` - (optional) loading renderer - a function with no arguments
+- `onError` - (optional) error renderer - a function with one argument, the request error
+- `responseFormat` - (optional) one of 'json', 'text', 'formData', 'blob' or 'arrayBuffer' (defaults to 'json')
+- `fetchFn` - (optional) fetch() implementation to use (defaults to 'window.fetch')
 
 # Installation
 
@@ -24,7 +34,7 @@ For [older browsers](https://caniuse.com/#feat=fetch) without native fetch suppo
 
 For Node.js usage you need [node-fetch](https://www.npmjs.com/package/node-fetch).
 
-# Basic usage
+# Usage
 
 ```js
 import React from 'react'
@@ -33,26 +43,22 @@ import Fetch from 'fetch-react'
 const GitHubUser = ({ name }) =>
   <Fetch
     request='https://api.github.com/search/users?q=' + name
-    onLoading={() => 'loading...'}
-    onResponse={response => {
-      const { avatar_url, login } = response.items[0]
-      <div>
-        <p>{login}</p>
-        <img src={avatar_url}/>
-      </div>
-    }}
-    onError={error => 'an error occured'}
+    onResponse={response => <img src={response.items[0].avatar_url}/>}
+    onLoading={() => 'Loading...'}
+    onError={error => 'An error occured!'}
   />
+
+// and use like
 
 <GitHubUser name="alexanderdzhoganov"/>
 ```
 
-# Setting options
+# Fetch options
 
 You can pass options to the `fetch` call using the `opts` prop.
 Valid options are described [here](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters).
 
-# Base URL and default options
+# Default options and base URL
 
 You can wrap the component to set default options or a base URL.
 
@@ -65,6 +71,8 @@ const MyFetch = props => <Fetch
   { ...props }
 />
 
+// then use like
+
 <MyFetch
   url="/user/11"
   onResponse={user => <User user={user}/>}
@@ -75,7 +83,7 @@ const MyFetch = props => <Fetch
 
 You can `throw` from `onResponse` which will render `onError` with the thrown error as first argument.
 
-# Low-level usage of `withFetch`
+# `withFetch`
 
 ```js
 import React from 'react'
@@ -99,5 +107,5 @@ class MyComponent extends React.Component {
   }
 }
 
-export default withFetch(url)(MyComponent)
+const WrappedComponent = withFetch(url)(MyComponent)
 ```
