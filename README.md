@@ -42,14 +42,12 @@ const GitHubUser = ({ name }) =>
 <GitHubUser name="alexanderdzhoganov"/>
 ```
 
-# Advanced usage
-
-## Setting options
+# Setting options
 
 You can pass options to the `fetch` call using the `opts` prop.
 Valid options are described [here](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch).
 
-## Base URL and default options
+# Base URL and default options
 
 You can wrap the component to set default options or a base URL.
 
@@ -68,11 +66,11 @@ const MyFetch = props => <Fetch
 />
 ```
 
-## Handling errors in the response
+# Handling errors in the response
 
 You can `throw` from `onResponse` which will render `onError` with the thrown error as first argument.
 
-## Low-level usage of `withFetch`
+# Low-level usage of `withFetch`
 
 ```js
 import React from 'react'
