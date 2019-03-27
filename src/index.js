@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Component } from 'react'
 
-export const withFetch = (request, opts) => (Component) =>
+export const withFetch = (request, opts) => BaseComponent =>
   class withFetch extends Component {
     static defaultProps = {
       fetchFn: window.fetch || global.fetch,
@@ -26,7 +26,7 @@ export const withFetch = (request, opts) => (Component) =>
     }
 
     render() {
-      return <Component { ...this.props } { ...this.state } />;
+      return <BaseComponent { ...this.props } { ...this.state } />;
     }
   }
 
@@ -46,21 +46,17 @@ class FetchHelper extends PureComponent {
       onError
     } = this.props
 
-    let children = null
-
-    if (!fetchResponse && !fetchError) {
-      children = onLoading()
-    } else if (fetchError) {
-      children = onError(fetchError)
+    if (fetchError) {
+      return onError(fetchError)
     } else if (fetchResponse) {
       try {
-        children = onData(fetchResponse)
+        return onData(fetchResponse)
       } catch (error) {
-        children = onError(error)
+        return onError(error)
       }
     }
 
-    return <div>{children}</div>
+    return onLoading()
   }
 }
 
