@@ -5,3 +5,4 @@ examples
 .gitignore
 webpack.config.js
 jest.config.js
+.circleci
