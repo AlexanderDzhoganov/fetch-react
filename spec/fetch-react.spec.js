@@ -44,7 +44,7 @@ beforeAll(() => {
 
 afterAll(() => listener.close())
 
-const awaitResult = () => new Promise(resolve => setTimeout(resolve, 25))
+const awaitResult = () => new Promise(resolve => setTimeout(resolve, 100))
 
 describe("react-setup", () => {
   it("renders a simple component", () => {
