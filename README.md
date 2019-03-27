@@ -1,9 +1,5 @@
 # fetch-react
 
-```bash
-npm i fetch-react
-```
-
 `fetch-react` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
 
 ```js
@@ -15,6 +11,12 @@ npm i fetch-react
   onError={onError}       // error handler - a function with one argument, the request error
   responseFormat={responseFormat} // one of 'json', 'text', 'formData', 'blob' or 'arrayBuffer' (defaults to 'json')
 />
+```
+
+# Installation
+
+```bash
+npm i fetch-react
 ```
 
 # Basic usage
