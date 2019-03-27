@@ -1,5 +1,9 @@
 # fetch-react
 
+```bash
+npm i fetch-react
+```
+
 `fetch-react` is a React [Higher-Order Component](https://reactjs.org/docs/higher-order-components.html) that wraps the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) in a declarative way.
 
 ```js
