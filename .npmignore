@@ -6,3 +6,4 @@ examples
 webpack.config.js
 jest.config.js
 .circleci
+coverage

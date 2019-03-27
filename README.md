@@ -16,11 +16,11 @@
 
 # Props
 
-- `request` - the request url, the first argument passed to `fetch()` - a string, [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object
-- `opts` - request options, the second argument passed to `fetch()`
+- `request` - the request url - a string, [URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) or [Request](https://developer.mozilla.org/en-US/docs/Web/API/Request) object
 - `onData` - a function that renders the response data
 - `onLoading` - (optional) a function that renders the loading state
 - `onError` - (optional) a function that renders the error state
+- `opts` - (optional) request options are passed directly to `fetch()`
 - `readFn` - (optional) function to read the [Response](https://developer.mozilla.org/en-US/docs/Web/API/Response) body (defaults to `resp => resp.json()`)
 - `fetchFn` - (optional) `fetch()` implementation to use (defaults to `window.fetch`)
 

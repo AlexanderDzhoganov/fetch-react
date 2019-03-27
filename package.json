@@ -1,10 +1,10 @@
 {
   "name": "fetch-react",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Fetch API component for React",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --collect-coverage",
     "build": "webpack",
     "prepublishOnly": "rm dist/ -r && npm run build"
   },

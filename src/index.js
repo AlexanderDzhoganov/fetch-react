@@ -3,7 +3,7 @@ import React, { PureComponent, Component } from 'react'
 export const withFetch = (request, opts) => BaseComponent =>
   class withFetch extends Component {
     static defaultProps = {
-      fetchFn: window.fetch || global.fetch,
+      fetchFn: /* istanbul ignore next */ fetch || window.fetch || global.fetch,
       readFn: response => response.json()
     }
 
@@ -32,7 +32,6 @@ export const withFetch = (request, opts) => BaseComponent =>
 
 class FetchHelper extends PureComponent {
   static defaultProps = {
-    onData: () => null,
     onLoading: () => null,
     onError: () => null
   }
