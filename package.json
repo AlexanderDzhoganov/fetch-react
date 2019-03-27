@@ -1,0 +1,50 @@
+{
+  "name": "react-fetch",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --require @babel/register --recursive",
+    "build": "webpack",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexanderdzhoganov/react-fetch.git"
+  },
+  "keywords": [
+    "react",
+    "fetch"
+  ],
+  "author": "Alexander Dzhoganov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexanderdzhoganov/react-fetch/issues"
+  },
+  "homepage": "https://github.com/alexanderdzhoganov/react-fetch#readme",
+  "peerDependencies": {
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "expect": "^24.5.0",
+    "jsdom": "^14.0.0",
+    "mocha": "^6.0.2",
+    "node-fetch": "^2.3.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  },
+  "dependencies": {}
+}
