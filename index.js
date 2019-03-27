@@ -1,1 +1,1 @@
-module.exports = require('./dist/fetch-react');
+module.exports = require('./dist/fetch-react.min.js');
