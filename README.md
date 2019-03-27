@@ -60,7 +60,7 @@ You can wrap the component to set default options or a base URL.
 const fetchOpts = { credentials: 'same-origin' }
 
 const MyFetch = props => <Fetch
-  request={new URL('https://api.example.com/v1/', props.endpoint).href}
+  request={new URL('https://api.example.com/v1/', props.url).href}
   opts={fetchOpts}
   { ...props }
 />
